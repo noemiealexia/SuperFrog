@@ -15,6 +15,10 @@ public class Health : MonoBehaviour
 
     private bool stop = false;
 
+    public GameManager gameManager;
+
+    private bool death;
+
     void Start()
     {
 
@@ -27,12 +31,20 @@ public class Health : MonoBehaviour
     void Update()
     {
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !death)
         {
-            SceneManager.LoadScene(1);
+            death = true;
+            gameManager.GameOver();
         }
 
-        healthText.text = currentHealth.ToString();
+        if (currentHealth > 0)
+        {
+            healthText.text = currentHealth.ToString();
+        }
+        else
+        {
+            healthText.text = "0";
+        }
 
     }
 
