@@ -9,15 +9,13 @@ public class Health : MonoBehaviour
 {
 
     public int maxHealth = 100;
-    public int currentHealth;
+    static public int currentHealth;
 
     public TextMeshProUGUI healthText;
 
     private bool stop = false;
 
     public GameManager gameManager;
-
-    private bool death;
 
     void Start()
     {
@@ -31,13 +29,18 @@ public class Health : MonoBehaviour
     void Update()
     {
 
-        if (currentHealth <= 0 && !death)
+        if (currentHealth <= 0)
         {
-            death = true;
             gameManager.GameOver();
         }
 
-        if (currentHealth > 0)
+        if (currentHealth > 100)
+        {
+            currentHealth = 100;
+        }
+
+
+        if (currentHealth >= 0)
         {
             healthText.text = currentHealth.ToString();
         }
@@ -56,4 +59,5 @@ public class Health : MonoBehaviour
             currentHealth -= 1;
         }
     }
+
 }
