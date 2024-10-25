@@ -39,6 +39,6 @@ public class SpikeSpawner : MonoBehaviour
 
     void SpawnSpike()
     {
-        Instantiate(spike);
+        Instantiate(spike, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
     }
 }
