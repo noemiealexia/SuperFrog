@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        PlayerController.speed = 5;
         SceneManager.LoadScene(0);
     }
 }
