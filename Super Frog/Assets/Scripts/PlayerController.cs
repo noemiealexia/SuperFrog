@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        speed = 5;
 
     }
 
